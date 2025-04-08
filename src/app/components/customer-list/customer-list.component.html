@@ -1,0 +1,25 @@
+<h2>Listado de customer</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Codigo</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of customers">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.firstName}}</td>
+      <td> {{item.lastName}}</td>
+      <td>{{item.email}}</td>
+      <td>
+        <button type="button" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
+
+    </tr>
+  </tbody>
+</table>
+
