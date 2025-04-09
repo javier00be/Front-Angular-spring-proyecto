@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerCreateComponent } from './components/customer-create/customer-create.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,8 +15,9 @@ import { CustomerCreateComponent } from './components/customer-create/customer-c
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [CustomerListComponent]
+  bootstrap: [CustomerCreateComponent]
 })
 export class AppModule { }
