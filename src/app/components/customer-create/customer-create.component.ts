@@ -1,19 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/customer';
+import { CustomerService } from 'src/app/service/customer.service';
 
 @Component({
   selector: 'app-customer-create',
   templateUrl: './customer-create.component.html',
-  styleUrls: ['./customer-create.component.css']
+  styleUrls: ['./customer-create.component.css'],
 })
 export class CustomerCreateComponent implements OnInit {
-
-  id: string = '';
+  id: number = 0;
   firstName: string = '';
   lastName: string = '';
   email: string = '';
 
-  ngOnInit(): void {
+  constructor(private customerService: CustomerService) {}
 
+  ngOnInit(): void {}
+
+  createCustomer() {
+    let customer = new Customer(
+      this.id,
+      this.firstName,
+      this.lastName,
+      this.email
+    );
+    console.log(customer);
+    this.customerService.createCustomer(customer).subscribe(
+      res => {
+        console.log(res);
+      }
+    )
+    return customer;
   }
-
 }

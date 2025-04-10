@@ -16,6 +16,7 @@ export class CustomerService {
   }
 
   createCustomer(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(`${this.api}/guardar`, customer);
+    return this.http.post<Customer>(`${this.api}/crear`, customer);
   }
 }
+          
