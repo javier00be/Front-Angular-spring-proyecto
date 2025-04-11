@@ -23,10 +23,43 @@
         <td>{{item.email}}</td>
         <td class="text-center">
           <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary flex-fill me-2">Editar</button>
-            <button type="button" class="btn btn-danger flex-fill">Eliminar</button>
+            <button type="button" class="btn btn-secondary flex-fill me-2" (click)=" openEditModal(item) ">Editar</button>
+            <button type="button" class="btn btn-danger flex-fill" (click)="deleteCustomer()">Eliminar</button>
           </div>
         </td>
     </tbody>
   </table>
+</div>
+
+
+<!-- Modal de edición -->
+<div class="modal fade" id="editCustomerModal" tabindex="-1" aria-labelledby="editCustomerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCustomerModalLabel">Editar Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="selectedCustomer">
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="selectedCustomer.firstName" name="firstName">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="selectedCustomer.lastName" name="lastName">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="selectedCustomer.email" name="email">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="updateCustomer()">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
 </div>
