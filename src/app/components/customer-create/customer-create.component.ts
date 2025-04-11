@@ -8,7 +8,6 @@ import { CustomerService } from 'src/app/service/customer.service';
   styleUrls: ['./customer-create.component.css'],
 })
 export class CustomerCreateComponent implements OnInit {
-  id: number = 0;
   firstName: string = '';
   lastName: string = '';
   email: string = '';
@@ -19,7 +18,7 @@ export class CustomerCreateComponent implements OnInit {
 
   createCustomer() {
     let customer = new Customer(
-      this.id,
+      null,
       this.firstName,
       this.lastName,
       this.email
@@ -30,6 +29,5 @@ export class CustomerCreateComponent implements OnInit {
         console.log(res);
       }
     )
-    return customer;
   }
 }

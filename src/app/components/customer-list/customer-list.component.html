@@ -1,25 +1,32 @@
-<h2>Listado de customer</h2>
+<div class="container mt-5">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Codigo</th>
-      <th scope="col">First name</th>
-      <th scope="col">Last name</th>
-      <th scope="col">Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of customers">
-      <th scope="row">{{item.id}}</th>
-      <td>{{item.firstName}}</td>
-      <td> {{item.lastName}}</td>
-      <td>{{item.email}}</td>
-      <td>
-        <button type="button" class="btn btn-primary">Editar</button>
-        <button type="button" class="btn btn-danger">Eliminar</button>
+  <div class="d-flex justify-content-between mb-4">
+    <h2 class="text-center">Listado de customer</h2>
+    <button type="button" class="btn btn-dark" routerLink="customer/create">Crear customer +</button>
+  </div>
 
-    </tr>
-  </tbody>
-</table>
-
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">Codigo</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of customers">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.firstName}}</td>
+        <td> {{item.lastName}}</td>
+        <td>{{item.email}}</td>
+        <td class="text-center">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary flex-fill me-2">Editar</button>
+            <button type="button" class="btn btn-danger flex-fill">Eliminar</button>
+          </div>
+        </td>
+    </tbody>
+  </table>
+</div>
